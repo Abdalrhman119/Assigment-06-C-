@@ -1,27 +1,26 @@
-﻿namespace Assignment_06
+namespace Assignment_06_Updated
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            #region Q1: Describe the difference between passing reference type parameters by value and by reference, with a C# example.
+            #region Q1: Difference Between Passing by Value and Reference with Example
 
             /*
             -- Passing by value: The method receives a copy of the reference.
-               Changes made to the object's properties inside the method will affect the original object since 
-               both the original and copied references point to the same memory location.
+               Changes to object properties inside the method affect the original object as they share the same memory location,
+               but reassigning the reference doesn't affect the original.
 
-            -- Passing by reference: The method receives the actual reference, not a copy.
-               This allows the method to modify the reference itself, such as pointing it to a new object. 
-               Such changes will be reflected outside the method.
+            -- Passing by reference: The method receives the actual reference.
+               Reassigning the reference or modifying the object will reflect outside the method.
             */
 
             // Example
-            //int[] numbers = { 1, 2, 3 };
+            //int[] numbers = { 5, 10, 15 };
 
             //// Passing by value
             //ModifyByValue(numbers);
-            //Console.WriteLine("After ModifyByValue: " + string.Join(", ", numbers)); // Output: 10, 2, 3
+            //Console.WriteLine("After ModifyByValue: " + string.Join(", ", numbers)); // Output: 20, 10, 15
 
             //// Passing by reference
             //ModifyByReference(ref numbers);
@@ -29,22 +28,22 @@
 
             #endregion
 
-            #region Q2: Write a c# Function that accept 4 parameters from user and return result of summation and subtracting of two numbers
+            #region Q2: Function to Return Summation and Multiplication of Two Numbers
 
-            //int sum, mul;
-            //SumMul(10, 20, out sum, out mul);
-            //Console.WriteLine("Sum: " + sum); // 30
-            //Console.WriteLine("Mul: " + mul); // 200
+            //int sumResult, mulResult;
+            //CalculateSumAndProduct(12, 8, out sumResult, out mulResult);
+            //Console.WriteLine("Sum: " + sumResult); // Output: 20
+            //Console.WriteLine("Product: " + mulResult); // Output: 96
 
             #endregion
 
-            #region Q3: Create a function named MinMaxArray, to return the minimum and maximum values stored in an array, using reference parameters
+            #region Q3: Min and Max Values in an Array Using Reference Parameters
 
-            //int[] arr = { 10, 20, 30, 40, 50 };
-            //int min, max;
-            //MinMaxArray(arr, out min, out max);
-            //Console.WriteLine("Min: " + min); // 10
-            //Console.WriteLine("Max: " + max); // 50
+            //int[] numbersArray = { 25, 45, 10, 80, 15 };
+            //int minimum, maximum;
+            //FindMinMax(numbersArray, out minimum, out maximum);
+            //Console.WriteLine("Minimum: " + minimum); // Output: 10
+            //Console.WriteLine("Maximum: " + maximum); // Output: 80
 
             #endregion
         }
@@ -52,31 +51,26 @@
         #region Q1 Methods
         //static void ModifyByValue(int[] arr)
         //{
-
-        //    arr[0] = 10;
-
-        //    arr = new int[] { 50, 60, 70 };
+        //    arr[0] = 20; // Changes the content as the reference points to the same memory location
+        //    arr = new int[] { 50, 60, 70 }; // This reassigning won't affect the original reference
         //}
 
         //static void ModifyByReference(ref int[] arr)
         //{
-
-        //    arr = new int[] { 100, 200, 300 };
+        //    arr = new int[] { 100, 200, 300 }; // Reassigning affects the original reference
         //}
         #endregion
 
         #region Q2 Methods
-        //static void SumMul(int num1, int num2, out int sum, out int mul)
+        //static void CalculateSumAndProduct(int num1, int num2, out int sum, out int product)
         //{
-
         //    sum = num1 + num2;
-        //    mul = num1 * num2;
-
+        //    product = num1 * num2;
         //}
         #endregion
 
         #region Q3 Methods
-        //static void MinMaxArray(int[] arr, out int min, out int max)
+        //static void FindMinMax(int[] arr, out int min, out int max)
         //{
         //    min = arr[0];
         //    max = arr[0];
@@ -86,14 +80,12 @@
         //        {
         //            min = arr[i];
         //        }
-        //        else if (arr[i] > max)
+        //        if (arr[i] > max)
         //        {
         //            max = arr[i];
         //        }
         //    }
         //}
         #endregion
-
     }
-
 }
